@@ -14,13 +14,69 @@
   <link rel="stylesheet" href="css/fonts.css">
   <link rel="stylesheet" href="css/styles.css">
 </head>
-<body class="">
+<body class="bg-light-gray">
   <header class="bg-green">
-    <div class="container row column-full bg-green font-white font-lato-700">
-      <h1 class="padding-left">Code Journal</h1>
+    <div class="container row bg-green font-white font-lato-700">
+      <div class="column-full">
+        <h1>Code Journal</h1>
+      </div>
     </div>
   </header>
-  <main>
+  <main class="container">
+    <div class="column-full">
+      <h2>Edit Profile</h2>
+    </div>
+
+    <form class="row">
+      <div class="column-half test-border">
+        <img src="images/placeholder-image-square.jpg" alt="">
+      </div>
+
+      <div class="column-half test-border">
+        <div>
+          <label for="avatar-url">Avatar URL:</label>
+          <input
+          id="avatar-url"
+          name="avatar-url"
+          type="url"
+          required>
+        </div>
+        <div>
+          <label for="username">Username:</label>
+          <input
+          id="username"
+          name="username"
+          type="text"
+          required>
+        </div>
+        <div>
+          <label for="full-name">Full Name:</label>
+          <input
+          id="full-name"
+          name="fullname"
+          type="text"
+          required>
+        </div>
+        <div>
+          <label for="location">Location:</label>
+          <input
+          id="location"
+          name="location"
+          type="text"
+          required>
+        </div>
+      </div>
+
+      <div class="column-full test-border">
+        <label for="bio">Bio</label>
+        <textarea
+        id="bio"
+        name="bio"
+        rows="5"
+        required></textarea>
+      </div>
+    </form>
+
     <div data-view="edit-profile"></div>
   </main>
   <script src="js/data.js"></script>
