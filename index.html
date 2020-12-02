@@ -37,7 +37,7 @@
           id="avatar-url"
           name="avatar-url"
           type="url"
-          >
+          required>
         </div>
         <div class="form-control flex flex-column justify-end">
           <label for="username">Username</label>
@@ -45,7 +45,7 @@
           id="username"
           name="username"
           type="text"
-          >
+          required>
         </div>
         <div class="form-control flex flex-column justify-end">
           <label for="full-name">Full Name</label>
@@ -53,7 +53,7 @@
           id="full-name"
           name="fullname"
           type="text"
-          >
+          required>
         </div>
         <div class="form-control flex flex-column justify-end">
           <label for="location">Location</label>
@@ -61,7 +61,7 @@
           id="location"
           name="location"
           type="text"
-          >
+          required>
         </div>
       </div>
       <div class="column-full">
@@ -70,10 +70,14 @@
         id="bio"
         name="bio"
         rows="8"
-        ></textarea>
+        required>
+      </textarea>
       </div>
-      <div class="column-full row justify-end test-border">
-        <input class="input-submit font-lato-400 font-white" name="submit" type="submit">
+      <div class="column-full row justify-end">
+        <input
+        class="input-submit font-lato-400 font-white"
+        name="submit"
+        type="submit">
       </div>
     </form>
     <div data-view="edit-profile"></div>
