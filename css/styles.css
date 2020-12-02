@@ -63,6 +63,16 @@ img {
   border-radius: 5px;
 }
 
+.profile-image {
+  object-fit: cover;
+  object-position: top;
+  height: 100%;
+}
+
+.profile-image-container {
+  height: 408px;
+}
+
 textarea {
   display: block;
   width: 100%;
