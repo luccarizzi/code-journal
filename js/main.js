@@ -18,4 +18,5 @@ $form.addEventListener('submit', function (e) {
     data.profile[formName] = formElements[i].value;
   }
   $form.reset();
+  $profileImage.setAttribute('src', 'images/placeholder-image-square.jpg');
 });
