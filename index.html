@@ -18,47 +18,45 @@
   <header class="bg-green">
     <div class="container row bg-green font-white font-lato-700">
       <div class="column-full">
-        <h1>Code Journal</h1>
+        <h2>Code Journal</h2>
       </div>
     </div>
   </header>
-  <main class="container">
+  <main class="container font-lato-400">
     <div class="column-full">
-      <h2>Edit Profile</h2>
+      <h1>Edit Profile</h1>
     </div>
-
-    <form class="row">
-      <div class="column-half test-border">
+    <form class="row font-label">
+      <div class="column-half">
         <img src="images/placeholder-image-square.jpg" alt="">
       </div>
-
-      <div class="column-half test-border">
-        <div>
-          <label for="avatar-url">Avatar URL:</label>
+      <div class="column-half">
+        <div class="form-control flex flex-column justify-end">
+          <label for="avatar-url">Avatar URL</label>
           <input
           id="avatar-url"
           name="avatar-url"
           type="url"
           required>
         </div>
-        <div>
-          <label for="username">Username:</label>
+        <div class="form-control flex flex-column justify-end">
+          <label for="username">Username</label>
           <input
           id="username"
           name="username"
           type="text"
           required>
         </div>
-        <div>
-          <label for="full-name">Full Name:</label>
+        <div class="form-control flex flex-column justify-end">
+          <label for="full-name">Full Name</label>
           <input
           id="full-name"
           name="fullname"
           type="text"
           required>
         </div>
-        <div>
-          <label for="location">Location:</label>
+        <div class="form-control flex flex-column justify-end">
+          <label for="location">Location</label>
           <input
           id="location"
           name="location"
@@ -66,17 +64,18 @@
           required>
         </div>
       </div>
-
-      <div class="column-full test-border">
+      <div class="column-full">
         <label for="bio">Bio</label>
         <textarea
         id="bio"
         name="bio"
-        rows="5"
+        rows="8"
         required></textarea>
       </div>
+      <div class="column-full row justify-end test-border">
+        <input class="input-submit font-lato-400 font-white" name="submit" type="submit">
+      </div>
     </form>
-
     <div data-view="edit-profile"></div>
   </main>
   <script src="js/data.js"></script>
