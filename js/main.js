@@ -10,8 +10,6 @@ $avatarUrl.addEventListener('input', function (e) {
 var $form = document.getElementById('form');
 
 $form.addEventListener('submit', function (e) {
-  e.preventDefault();
-
   var formElements = document.forms[0].elements;
   for (var i = 0; i < formElements.length - 1; i++) {
     var formName = formElements[i].name;
