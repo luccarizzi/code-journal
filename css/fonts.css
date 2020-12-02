@@ -1,0 +1,17 @@
+@font-face {
+  font-family: "Lato";
+  font-weight: 400;
+  src: url(Lato-Regular.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "Lato";
+  font-weight: 700;
+  src: url(Lato-Bold.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "Open Sans";
+  font-weight: 400;
+  src: url(OpenSans-Regular.ttf) format("truetype");
+}

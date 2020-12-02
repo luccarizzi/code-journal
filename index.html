@@ -11,12 +11,75 @@
     integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==">
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/fonts.css">
   <link rel="stylesheet" href="css/styles.css">
 </head>
-<body>
-  <header>
+<body class="bg-light-gray">
+  <header class="bg-green">
+    <div class="container row bg-green font-white font-lato-700">
+      <div class="column-full">
+        <h2>Code Journal</h2>
+      </div>
+    </div>
   </header>
-  <main>
+  <main class="container font-lato-400">
+    <div class="column-full">
+      <h1>Edit Profile</h1>
+    </div>
+    <form id="form" class="row font-label">
+      <div class="column-half profile-image-container">
+        <img id="profileImage" class="profile-image" src="images/placeholder-image-square.jpg" alt="Profile Image.">
+      </div>
+      <div class="column-half">
+        <div class="flex flex-column justify-end">
+          <label for="avatarUrl">Avatar URL</label>
+          <input
+          id="avatarUrl"
+          name="avatarUrl"
+          type="url"
+          required>
+        </div>
+        <div class="flex flex-column justify-end">
+          <label for="username">Username</label>
+          <input
+          id="username"
+          name="username"
+          type="text"
+          required>
+        </div>
+        <div class="flex flex-column justify-end">
+          <label for="fullName">Full Name</label>
+          <input
+          id="fullName"
+          name="fullName"
+          type="text"
+          required>
+        </div>
+        <div class="flex flex-column justify-end">
+          <label for="location">Location</label>
+          <input
+          id="location"
+          name="location"
+          type="text"
+          required>
+        </div>
+      </div>
+      <div class="column-full">
+        <label for="bio">Bio</label>
+        <textarea
+        id="bio"
+        name="bio"
+        rows="6"
+        required></textarea>
+      </div>
+      <div class="column-full row justify-end">
+        <input
+        class="input-submit font-lato-400 font-white"
+        name="submit"
+        value="submit"
+        type="submit">
+      </div>
+    </form>
     <div data-view="edit-profile"></div>
   </main>
   <script src="js/data.js"></script>
