@@ -7,14 +7,15 @@ $avatarUrl.addEventListener('input', function (e) {
   $profileImage.setAttribute('src', imgUrl);
 });
 
-var $submit = document.querySelector('.input-submit');
+var $form = document.getElementById('form');
 
-$submit.addEventListener('click', function (e) {
-  // e.preventDefault();
+$form.addEventListener('submit', function (e) {
+  e.preventDefault();
 
   var formElements = document.forms[0].elements;
   for (var i = 0; i < formElements.length - 1; i++) {
     var formName = formElements[i].name;
     data.profile[formName] = formElements[i].value;
   }
+  $form.reset();
 });
