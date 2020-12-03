@@ -140,12 +140,6 @@ textarea:focus {
   text-align: justify;
 }
 
-/* test */
-
-.frame {
-  border: 1px solid red;
-}
-
 .view {
   display: block;
 }

@@ -3,7 +3,6 @@ var $avatarUrl = document.getElementById('avatarUrl');
 var $profileImage = document.getElementById('profileImage');
 
 $avatarUrl.addEventListener('input', function (e) {
-
   var imgUrl = event.target.value;
   $profileImage.setAttribute('src', imgUrl);
 });
@@ -17,10 +16,8 @@ $form.addEventListener('submit', function (e) {
     var formName = formElements[i].name;
     data.profile[formName] = formElements[i].value;
   }
-
   $form.reset();
   $profileImage.setAttribute('src', 'images/placeholder-image-square.jpg');
-
   e.preventDefault();
   swapView('profile');
 });
@@ -103,7 +100,6 @@ function swapView(view) {
 }
 
 document.addEventListener('DOMContentLoaded', function (e) {
-
   if (data.profile.username === '') {
     swapView('edit-profile');
   } else {
