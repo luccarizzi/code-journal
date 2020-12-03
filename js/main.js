@@ -3,6 +3,7 @@ var $avatarUrl = document.getElementById('avatarUrl');
 var $profileImage = document.getElementById('profileImage');
 
 $avatarUrl.addEventListener('input', function (e) {
+
   var imgUrl = event.target.value;
   $profileImage.setAttribute('src', imgUrl);
 });
@@ -102,6 +103,7 @@ function swapView(view) {
 }
 
 document.addEventListener('DOMContentLoaded', function (e) {
+
   if (data.profile.username === '') {
     swapView('edit-profile');
   } else {
