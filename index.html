@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body class="bg-light-gray">
+
   <header class="bg-green">
     <div class="container row bg-green font-white font-lato-700">
       <div class="column-full">
@@ -23,64 +24,68 @@
     </div>
   </header>
   <main class="container font-lato-400">
-    <div class="column-full">
-      <h1>Edit Profile</h1>
+    <div data-view="edit-profile" class="hidden view">
+      <section>
+        <div class="column-full">
+          <h1>Edit Profile</h1>
+        </div>
+        <form id="form" class="row font-18">
+          <div class="column-half profile-image-container">
+            <img id="profileImage" class="profile-image" src="images/placeholder-image-square.jpg" alt="Profile image.">
+          </div>
+          <div class="column-half">
+            <div class="flex flex-column justify-end">
+              <label for="avatarUrl">Avatar URL</label>
+              <input
+              id="avatarUrl"
+              name="avatarUrl"
+              type="url"
+              required>
+            </div>
+            <div class="flex flex-column justify-end">
+              <label for="username">Username</label>
+              <input
+              id="username"
+              name="username"
+              type="text"
+              required>
+            </div>
+            <div class="flex flex-column justify-end">
+              <label for="fullName">Full Name</label>
+              <input
+              id="fullName"
+              name="fullName"
+              type="text"
+              required>
+            </div>
+            <div class="flex flex-column justify-end">
+              <label for="location">Location</label>
+              <input
+              id="location"
+              name="location"
+              type="text"
+              required>
+            </div>
+          </div>
+          <div class="column-full">
+            <label for="bio">Bio</label>
+            <textarea
+            id="bio"
+            name="bio"
+            rows="6"
+            required></textarea>
+          </div>
+          <div class="column-full row justify-end">
+            <input
+            class="input-submit font-lato-400 font-white"
+            name="submit"
+            value="submit"
+            type="submit">
+          </div>
+        </form>
+      </section>
     </div>
-    <form id="form" class="row font-label">
-      <div class="column-half profile-image-container">
-        <img id="profileImage" class="profile-image" src="images/placeholder-image-square.jpg" alt="Profile Image.">
-      </div>
-      <div class="column-half">
-        <div class="flex flex-column justify-end">
-          <label for="avatarUrl">Avatar URL</label>
-          <input
-          id="avatarUrl"
-          name="avatarUrl"
-          type="url"
-          required>
-        </div>
-        <div class="flex flex-column justify-end">
-          <label for="username">Username</label>
-          <input
-          id="username"
-          name="username"
-          type="text"
-          required>
-        </div>
-        <div class="flex flex-column justify-end">
-          <label for="fullName">Full Name</label>
-          <input
-          id="fullName"
-          name="fullName"
-          type="text"
-          required>
-        </div>
-        <div class="flex flex-column justify-end">
-          <label for="location">Location</label>
-          <input
-          id="location"
-          name="location"
-          type="text"
-          required>
-        </div>
-      </div>
-      <div class="column-full">
-        <label for="bio">Bio</label>
-        <textarea
-        id="bio"
-        name="bio"
-        rows="6"
-        required></textarea>
-      </div>
-      <div class="column-full row justify-end">
-        <input
-        class="input-submit font-lato-400 font-white"
-        name="submit"
-        value="submit"
-        type="submit">
-      </div>
-    </form>
-    <div data-view="edit-profile"></div>
+    <div data-view="profile" class="view"></div>
   </main>
   <script src="js/data.js"></script>
   <script src="js/main.js"></script>
