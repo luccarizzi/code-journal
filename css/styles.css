@@ -19,7 +19,7 @@
   color: #fff;
 }
 
-.font-label {
+.font-18 {
   font-size: 18px;
 }
 
@@ -124,4 +124,19 @@ textarea:focus {
 .input-submit:active {
   background-color: #da3649;
   transform: translateY(0.1rem);
+}
+
+p [class] {
+  padding-right: 0.8rem;
+}
+
+.font-18 p {
+  line-height: 1.8rem;
+  text-align: justify;
+}
+
+/* test */
+
+.frame {
+  border: 1px solid red;
 }
