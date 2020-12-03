@@ -10,13 +10,18 @@ $avatarUrl.addEventListener('input', function (e) {
 var $form = document.getElementById('form');
 
 $form.addEventListener('submit', function (e) {
+
   var formElements = document.forms[0].elements;
   for (var i = 0; i < formElements.length - 1; i++) {
     var formName = formElements[i].name;
     data.profile[formName] = formElements[i].value;
   }
+
   $form.reset();
   $profileImage.setAttribute('src', 'images/placeholder-image-square.jpg');
+
+  e.preventDefault();
+  swapView('profile');
 });
 
 function renderProfile(object) {
@@ -44,7 +49,13 @@ function renderProfile(object) {
   img.setAttribute('alt', 'Profile image.');
 
   var div1 = document.createElement('div');
+  div1.setAttribute('class', 'paragraph-icon');
+
   var div2 = document.createElement('div');
+  div2.setAttribute('class', 'paragraph-icon');
+
+  var div3 = document.createElement('div');
+  div3.setAttribute('class', 'paragraph-bio');
 
   var p1 = document.createElement('p');
   p1.textContent = object.profile.username;
@@ -65,14 +76,13 @@ function renderProfile(object) {
   divColumnFull.append(h1);
   divRow.append(divColumnHalf1, divColumnHalf2);
   divColumnHalf1.append(img);
-  divColumnHalf2.append(div1, div2, p3);
+  divColumnHalf2.append(div1, div2, div3);
   div1.append(i1, p1);
   div2.append(i2, p2);
+  div3.append(p3);
 
   return section;
 }
-
-// renderProfile(data);
 
 var $viewList = document.querySelectorAll('.view');
 
@@ -89,7 +99,6 @@ function swapView(view) {
     }
   }
   data.view = view;
-
 }
 
-swapView();
+swapView('edit-profile');

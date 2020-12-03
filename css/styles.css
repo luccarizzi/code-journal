@@ -130,10 +130,13 @@ textarea:focus {
   margin: 18px 0;
 }
 
-.paragraph p {
+.paragraph-icon p {
   padding-left: 0.8rem;
   display: inline;
-  line-height: 1.8rem;
+}
+
+.paragraph-bio {
+  line-height: 2rem;
   text-align: justify;
 }
 
