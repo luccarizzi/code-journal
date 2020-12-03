@@ -142,3 +142,7 @@ textarea:focus {
 .frame {
   border: 1px solid red;
 }
+
+.view {
+  display: block;
+}
