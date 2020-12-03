@@ -73,3 +73,9 @@ function renderProfile(object) {
 }
 
 renderProfile(data);
+
+function swapView(data) {
+
+}
+
+swapView();

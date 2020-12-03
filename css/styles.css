@@ -126,18 +126,15 @@ textarea:focus {
   transform: translateY(0.1rem);
 }
 
-i + p {
+.paragraph div {
+  margin: 18px 0;
+}
+
+.paragraph p {
   padding-left: 0.8rem;
   display: inline;
-}
-
-.font-18 p {
   line-height: 1.8rem;
   text-align: justify;
-}
-
-.font-18 div {
-  margin: 18px 0;
 }
 
 /* test */
