@@ -72,7 +72,7 @@ function renderProfile(object) {
   return section;
 }
 
-renderProfile(data);
+// renderProfile(data);
 
 var $viewList = document.querySelectorAll('.view');
 
@@ -82,6 +82,7 @@ function swapView(view) {
       $viewList[i].setAttribute('class', 'view');
       if ($viewList[i].getAttribute('data-view') === 'profile') {
         $viewList[i].innerHTML = '';
+        $viewList[i].appendChild(renderProfile(data));
       }
     } else {
       $viewList[i].setAttribute('class', 'view hidden');
