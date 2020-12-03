@@ -36,7 +36,7 @@ function renderProfile(object) {
   divColumnHalf1.setAttribute('class', 'column-half profile-image-container');
 
   var divColumnHalf2 = document.createElement('div');
-  divColumnHalf2.setAttribute('class', 'column-half font-18');
+  divColumnHalf2.setAttribute('class', 'column-half font-18 paragraph');
 
   var img = document.createElement('img');
   img.setAttribute('class', 'profile-image');
@@ -74,7 +74,9 @@ function renderProfile(object) {
 
 renderProfile(data);
 
-function swapView(data) {
+function swapView(view) {
+
+  data.view = view;
 
 }
 
