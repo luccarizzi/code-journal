@@ -108,15 +108,3 @@ document.addEventListener('DOMContentLoaded', function (e) {
     swapView('profile');
   }
 });
-
-// reset profile
-
-function resetProfile(data) {
-  var dataProfile = data.profile;
-  for (var key in dataProfile) {
-    dataProfile[key] = '';
-  }
-  return dataProfile;
-}
-
-resetProfile();
