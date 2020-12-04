@@ -83,7 +83,6 @@ function renderProfile(object) {
 }
 
 var $viewList = document.querySelectorAll('.view');
-
 var form = document.forms[0].elements;
 
 function swapView(view) {
