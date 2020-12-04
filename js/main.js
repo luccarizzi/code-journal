@@ -19,7 +19,6 @@ $form.addEventListener('submit', function (e) {
     var formName = formElements[i].name;
     data.profile[formName] = formElements[i].value;
   }
-
   // $profileImage.setAttribute('src', 'images/placeholder-image-square.jpg');
   // $form.reset();
   swapView('profile');
