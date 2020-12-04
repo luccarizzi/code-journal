@@ -88,6 +88,7 @@ textarea {
   font-family: "Open Sans", sans-serif;
 }
 
+.edit-button,
 input {
   height: 3rem;
   width: 100%;
@@ -100,6 +101,7 @@ textarea:focus {
   border: 1px solid #0e4300;
 }
 
+.edit-button,
 .input-submit {
   text-transform: uppercase;
   font-size: 22px;
@@ -111,16 +113,27 @@ textarea:focus {
   width: 6rem;
 }
 
+.edit-button {
+  text-decoration: none;
+  display: block;
+  border-radius: 5px;
+  text-align: center;
+  padding-top: 0.6rem;
+}
+
+.edit-button:focus,
 .input-submit:focus {
   outline: none;
   border: none;
   background-color: #1d8f00;
 }
 
+.edit-button:hover,
 .input-submit:hover {
   background-color: #a62938;
 }
 
+.edit-button:active,
 .input-submit:active {
   background-color: #da3649;
   transform: translateY(0.1rem);

@@ -55,6 +55,9 @@ function renderProfile(object) {
   var div3 = document.createElement('div');
   div3.setAttribute('class', 'paragraph-bio');
 
+  var div4 = document.createElement('div');
+  // div4.setAttribute("class", "");
+
   var p1 = document.createElement('p');
   p1.textContent = object.profile.username;
 
@@ -70,14 +73,21 @@ function renderProfile(object) {
   var i2 = document.createElement('i');
   i2.setAttribute('class', 'fas fa-map-marker-alt');
 
+  var a = document.createElement('a');
+  a.setAttribute('class', 'edit-button font-lato-400 font-white');
+  a.setAttribute('href', '#');
+  a.setAttribute('data-view', 'edit-profile');
+  a.textContent = 'edit';
+
   section.append(divColumnFull, divRow);
   divColumnFull.append(h1);
   divRow.append(divColumnHalf1, divColumnHalf2);
   divColumnHalf1.append(img);
-  divColumnHalf2.append(div1, div2, div3);
+  divColumnHalf2.append(div1, div2, div3, div4);
   div1.append(i1, p1);
   div2.append(i2, p2);
   div3.append(p3);
+  div4.append(a);
 
   return section;
 }
