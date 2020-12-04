@@ -18,7 +18,6 @@ $form.addEventListener('submit', function (e) {
   }
   $form.reset();
   $profileImage.setAttribute('src', 'images/placeholder-image-square.jpg');
-  e.preventDefault();
   swapView('profile');
 });
 
@@ -94,6 +93,7 @@ function renderProfile(object) {
 
 var $viewList = document.querySelectorAll('.view');
 var form = document.forms[0].elements;
+var $a = document.querySelector('a[data-view]');
 
 function swapView(view) {
   for (var i = 0; i < $viewList.length; i++) {
@@ -103,13 +103,23 @@ function swapView(view) {
         $viewList[i].innerHTML = '';
         $viewList[i].appendChild(renderProfile(data));
       } else if (view === 'edit-profile') {
-        for (var j = 0; j < form.length - 1; j++) {
-          var formName = form[j].name;
-          if (formName === 'avatarUrl') {
-            $profileImage.setAttribute('src', data.profile.avatarUrl);
+
+        if (data.profile.username === '') {
+
+          $a.setAttribute('class', 'hidden');
+
+        } else if (data.profile.username !== '') {
+          for (var j = 0; j < form.length - 1; j++) {
+            var formName = form[j].name;
+
+            if (formName === 'avatarUrl') {
+              $profileImage.setAttribute('src', data.profile.avatarUrl);
+            }
+            form[j].value = data.profile[formName];
           }
-          form[j].value = data.profile[formName];
+
         }
+
       }
     } else {
       $viewList[i].setAttribute('class', 'view hidden');
@@ -121,6 +131,7 @@ function swapView(view) {
 document.addEventListener('DOMContentLoaded', function (e) {
   if (data.profile.username === '') {
     swapView('edit-profile');
+
   } else {
     swapView('profile');
   }
