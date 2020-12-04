@@ -125,3 +125,9 @@ document.addEventListener('DOMContentLoaded', function (e) {
     swapView('profile');
   }
 });
+
+document.addEventListener('click', function (e) {
+  if (e.target.tagName === 'A') {
+    return 'delete me';
+  }
+});
