@@ -15,16 +15,18 @@
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body class="bg-light-gray">
-
   <header class="bg-green">
-    <div class="container row bg-green font-white font-lato-700">
-      <div class="column-full">
+    <div class="container bg-green font-white font-lato-700">
+      <div class="column-full row">
         <h2>Code Journal</h2>
+        <nav class="row align-center">
+          <a class="font-white" href="#" data-view="profile">Profile</a>
+        </nav>
       </div>
     </div>
   </header>
   <main class="container font-lato-400">
-    <div data-view="edit-profile" class="hidden view">
+    <div data-view="edit-profile" class="view hidden">
       <section>
         <div class="column-full">
           <h1>Edit Profile</h1>
@@ -79,7 +81,7 @@
             <input
             class="input-submit font-lato-400 font-white"
             name="submit"
-            value="submit"
+            value="save"
             type="submit">
           </div>
         </form>

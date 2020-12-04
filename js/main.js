@@ -5,6 +5,9 @@ var $profileImage = document.getElementById('profileImage');
 $avatarUrl.addEventListener('input', function (e) {
   var imgUrl = event.target.value;
   $profileImage.setAttribute('src', imgUrl);
+  if ($avatarUrl.value === '') {
+    $profileImage.setAttribute('src', 'images/placeholder-image-square.jpg');
+  }
 });
 
 var $form = document.getElementById('form');
@@ -16,9 +19,8 @@ $form.addEventListener('submit', function (e) {
     var formName = formElements[i].name;
     data.profile[formName] = formElements[i].value;
   }
-  $form.reset();
-  $profileImage.setAttribute('src', 'images/placeholder-image-square.jpg');
-  e.preventDefault();
+  // $profileImage.setAttribute('src', 'images/placeholder-image-square.jpg');
+  // $form.reset();
   swapView('profile');
 });
 
@@ -55,6 +57,8 @@ function renderProfile(object) {
   var div3 = document.createElement('div');
   div3.setAttribute('class', 'paragraph-bio');
 
+  var div4 = document.createElement('div');
+
   var p1 = document.createElement('p');
   p1.textContent = object.profile.username;
 
@@ -70,27 +74,48 @@ function renderProfile(object) {
   var i2 = document.createElement('i');
   i2.setAttribute('class', 'fas fa-map-marker-alt');
 
+  var a = document.createElement('a');
+  a.setAttribute('class', 'edit-button font-lato-400 font-white');
+  a.setAttribute('href', '#');
+  a.setAttribute('data-view', 'edit-profile');
+  a.textContent = 'edit';
+
   section.append(divColumnFull, divRow);
   divColumnFull.append(h1);
   divRow.append(divColumnHalf1, divColumnHalf2);
   divColumnHalf1.append(img);
-  divColumnHalf2.append(div1, div2, div3);
+  divColumnHalf2.append(div1, div2, div3, div4);
   div1.append(i1, p1);
   div2.append(i2, p2);
   div3.append(p3);
+  div4.append(a);
 
   return section;
 }
 
 var $viewList = document.querySelectorAll('.view');
+var form = document.forms[0].elements;
+var $a = document.querySelector('a[data-view]');
 
 function swapView(view) {
   for (var i = 0; i < $viewList.length; i++) {
     if ($viewList[i].getAttribute('data-view') === view) {
       $viewList[i].setAttribute('class', 'view');
-      if ($viewList[i].getAttribute('data-view') === 'profile') {
+      if (view === 'profile') {
         $viewList[i].innerHTML = '';
         $viewList[i].appendChild(renderProfile(data));
+      } else if (view === 'edit-profile') {
+        if (data.profile.username === '') {
+          $a.setAttribute('class', 'hidden');
+        } else if (data.profile.username !== '') {
+          for (var j = 0; j < form.length - 1; j++) {
+            var formName = form[j].name;
+            if (formName === 'avatarUrl') {
+              $profileImage.setAttribute('src', data.profile.avatarUrl);
+            }
+            form[j].value = data.profile[formName];
+          }
+        }
       }
     } else {
       $viewList[i].setAttribute('class', 'view hidden');
@@ -104,5 +129,11 @@ document.addEventListener('DOMContentLoaded', function (e) {
     swapView('edit-profile');
   } else {
     swapView('profile');
+  }
+});
+
+document.addEventListener('click', function (e) {
+  if (e.target.tagName === 'A') {
+    swapView(e.target.getAttribute('data-view'));
   }
 });
