@@ -10,7 +10,7 @@ $avatarUrl.addEventListener('input', function (e) {
   }
 });
 
-var $form = document.getElementById('form');
+var $form = document.getElementById('profileForm');
 
 $form.addEventListener('submit', function (e) {
 
