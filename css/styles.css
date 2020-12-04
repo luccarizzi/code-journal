@@ -67,13 +67,13 @@ img {
   border-radius: 5px;
 }
 
-.profile-image {
+.image {
   object-fit: cover;
   object-position: top;
   height: 100%;
 }
 
-.profile-image-container {
+.image-container {
   height: 408px;
 }
 

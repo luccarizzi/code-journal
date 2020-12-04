@@ -21,22 +21,26 @@ $photoUrl.addEventListener('input', function (e) {
   }
 });
 
-var $form = document.getElementById('profileForm');
+var $formProfile = document.getElementById('profileForm');
 
-$form.addEventListener('submit', function (e) {
-
+$formProfile.addEventListener('submit', function (e) {
   var formElements = document.forms[0].elements;
   for (var i = 0; i < formElements.length - 1; i++) {
     var formName = formElements[i].name;
     data.profile[formName] = formElements[i].value;
   }
   // $profileImage.setAttribute('src', 'images/placeholder-image-square.jpg');
-  // $form.reset();
+  // $formProfile.reset();
   swapView('profile');
 });
 
-function renderProfile(object) {
+var $formEntry = document.getElementById('entryForm');
 
+$formEntry.addEventListener('submit', function (e) {
+
+});
+
+function renderProfile(object) {
   var section = document.createElement('section');
 
   var divColumnFull = document.createElement('div');
@@ -49,13 +53,13 @@ function renderProfile(object) {
   h1.textContent = object.profile.fullName;
 
   var divColumnHalf1 = document.createElement('div');
-  divColumnHalf1.setAttribute('class', 'column-half profile-image-container');
+  divColumnHalf1.setAttribute('class', 'column-half image-container');
 
   var divColumnHalf2 = document.createElement('div');
   divColumnHalf2.setAttribute('class', 'column-half font-18 paragraph');
 
   var img = document.createElement('img');
-  img.setAttribute('class', 'profile-image');
+  img.setAttribute('class', 'image');
   img.setAttribute('src', object.profile.avatarUrl);
   img.setAttribute('alt', 'Profile image.');
 
