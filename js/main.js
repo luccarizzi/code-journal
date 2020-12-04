@@ -3,10 +3,21 @@ var $avatarUrl = document.getElementById('avatarUrl');
 var $profileImage = document.getElementById('profileImage');
 
 $avatarUrl.addEventListener('input', function (e) {
-  var imgUrl = event.target.value;
-  $profileImage.setAttribute('src', imgUrl);
+  var imageUrl = e.target.value; // var & e changed
+  $profileImage.setAttribute('src', imageUrl);
   if ($avatarUrl.value === '') {
     $profileImage.setAttribute('src', 'images/placeholder-image-square.jpg');
+  }
+});
+
+var $photoUrl = document.getElementById('photoUrl');
+var $entryImage = document.getElementById('entryImage');
+
+$photoUrl.addEventListener('input', function (e) {
+  var photoUrl = e.target.value;
+  $entryImage.setAttribute('src', photoUrl);
+  if ($photoUrl.value === '') {
+    $entryImage.setAttribute('src', 'images/placeholder-image-square.jpg');
   }
 });
 
