@@ -51,6 +51,14 @@
   align-items: center;
 }
 
+.justify-evenly {
+  justify-content: space-evenly;
+}
+
+.align-baseline {
+  align-items: baseline;
+}
+
 /* extra */
 
 img {
@@ -162,8 +170,4 @@ textarea:focus {
 
 a {
   text-decoration: none;
-}
-
-nav {
-  margin-left: 3rem;
 }
