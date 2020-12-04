@@ -128,6 +128,6 @@ document.addEventListener('DOMContentLoaded', function (e) {
 
 document.addEventListener('click', function (e) {
   if (e.target.tagName === 'A') {
-    return 'delete me';
+    swapView('edit-profile');
   }
 });
