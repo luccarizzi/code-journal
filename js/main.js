@@ -55,7 +55,6 @@ function renderProfile(object) {
   div3.setAttribute('class', 'paragraph-bio');
 
   var div4 = document.createElement('div');
-  // div4.setAttribute("class", "");
 
   var p1 = document.createElement('p');
   p1.textContent = object.profile.username;
@@ -103,23 +102,17 @@ function swapView(view) {
         $viewList[i].innerHTML = '';
         $viewList[i].appendChild(renderProfile(data));
       } else if (view === 'edit-profile') {
-
         if (data.profile.username === '') {
-
           $a.setAttribute('class', 'hidden');
-
         } else if (data.profile.username !== '') {
           for (var j = 0; j < form.length - 1; j++) {
             var formName = form[j].name;
-
             if (formName === 'avatarUrl') {
               $profileImage.setAttribute('src', data.profile.avatarUrl);
             }
             form[j].value = data.profile[formName];
           }
-
         }
-
       }
     } else {
       $viewList[i].setAttribute('class', 'view hidden');
@@ -131,7 +124,6 @@ function swapView(view) {
 document.addEventListener('DOMContentLoaded', function (e) {
   if (data.profile.username === '') {
     swapView('edit-profile');
-
   } else {
     swapView('profile');
   }
