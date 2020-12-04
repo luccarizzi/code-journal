@@ -84,13 +84,23 @@ function renderProfile(object) {
 
 var $viewList = document.querySelectorAll('.view');
 
+var form = document.forms[0].elements;
+
 function swapView(view) {
   for (var i = 0; i < $viewList.length; i++) {
     if ($viewList[i].getAttribute('data-view') === view) {
       $viewList[i].setAttribute('class', 'view');
-      if ($viewList[i].getAttribute('data-view') === 'profile') {
+      if (view === 'profile') {
         $viewList[i].innerHTML = '';
         $viewList[i].appendChild(renderProfile(data));
+      } else if (view === 'edit-profile') {
+        for (var j = 0; j < form.length - 1; j++) {
+          var formName = form[j].name;
+          if (formName === 'avatarUrl') {
+            $profileImage.setAttribute('src', data.profile.avatarUrl);
+          }
+          form[j].value = data.profile[formName];
+        }
       }
     } else {
       $viewList[i].setAttribute('class', 'view hidden');
