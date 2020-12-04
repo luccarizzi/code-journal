@@ -47,6 +47,10 @@
   flex-direction: column;
 }
 
+.align-center {
+  align-items: center;
+}
+
 /* extra */
 
 img {
@@ -114,7 +118,6 @@ textarea:focus {
 }
 
 .edit-button {
-  text-decoration: none;
   display: block;
   border-radius: 5px;
   text-align: center;
@@ -155,4 +158,12 @@ textarea:focus {
 
 .view {
   display: block;
+}
+
+a {
+  text-decoration: none;
+}
+
+nav {
+  margin-left: 3rem;
 }
