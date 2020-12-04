@@ -95,7 +95,7 @@ function renderProfile(object) {
 
 var $viewList = document.querySelectorAll('.view');
 var form = document.forms[0].elements;
-var $a = document.querySelector('a[data-view]');
+var $aList = document.querySelectorAll('a[data-view]');
 
 function swapView(view) {
   for (var i = 0; i < $viewList.length; i++) {
@@ -106,7 +106,9 @@ function swapView(view) {
         $viewList[i].appendChild(renderProfile(data));
       } else if (view === 'edit-profile') {
         if (data.profile.username === '') {
-          $a.setAttribute('class', 'hidden');
+          for (var k = 0; k < $aList.length; k++) {
+            $aList[k].setAttribute('class', 'hidden');
+          }
         } else if (data.profile.username !== '') {
           for (var j = 0; j < form.length - 1; j++) {
             var formName = form[j].name;
