@@ -30,7 +30,7 @@ $formProfile.addEventListener('submit', function (e) {
     data.profile[formName] = formElements[i].value;
   }
   $profileImage.setAttribute('src', 'images/placeholder-image-square.jpg');
-  // $formProfile.reset();
+  $formProfile.reset();
   swapView('profile');
 });
 
@@ -50,6 +50,7 @@ $formEntry.addEventListener('submit', function (e) {
   data.entries.push(entryInfo);
 
   $entryImage.setAttribute('src', 'images/placeholder-image-square.jpg');
+  $formEntry.reset();
 });
 
 function renderProfile(object) {
