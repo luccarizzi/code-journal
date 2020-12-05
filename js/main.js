@@ -24,14 +24,24 @@ $photoUrl.addEventListener('input', function (e) {
 var $formProfile = document.getElementById('profileForm');
 
 $formProfile.addEventListener('submit', function (e) {
-  var formElements = document.forms[0].elements;
-  for (var i = 0; i < formElements.length - 1; i++) {
-    var formName = formElements[i].name;
-    data.profile[formName] = formElements[i].value;
-  }
+
+  var $avatarUrlValue = document.getElementById('avatarUrl').value;
+  var $usernameValue = document.getElementById('username').value;
+  var $fullNameValue = document.getElementById('fullName').value;
+  var $locationValue = document.getElementById('location').value;
+  var $bioValue = document.getElementById('bio').value;
+
+  data.profile.avatarUrl = $avatarUrlValue;
+  data.profile.username = $usernameValue;
+  data.profile.fullName = $fullNameValue;
+  data.profile.location = $locationValue;
+  data.profile.bio = $bioValue;
+
   $profileImage.setAttribute('src', 'images/placeholder-image-square.jpg');
-  $formProfile.reset();
+
   swapView('profile');
+
+  // $formProfile.reset();
 });
 
 var $formEntry = document.getElementById('entryForm');
@@ -50,7 +60,10 @@ $formEntry.addEventListener('submit', function (e) {
   data.entries.push(entryInfo);
 
   $entryImage.setAttribute('src', 'images/placeholder-image-square.jpg');
-  $formEntry.reset();
+
+  swapView('entries');
+
+  // $formEntry.reset();
 });
 
 function renderProfile(object) {
@@ -151,6 +164,9 @@ function swapView(view) {
       $viewList[i].setAttribute('class', 'view hidden');
     }
   }
+  if (view === 'entries') {
+    document.querySelector('a[data-view=create-entry]').className = 'edit-button font-lato-400 font-white view';
+  }
   data.view = view;
 }
 
@@ -158,7 +174,7 @@ document.addEventListener('DOMContentLoaded', function (e) {
   if (data.profile.username === '') {
     swapView('edit-profile');
   } else {
-    swapView('profile');
+    swapView(data.view);
   }
 });
 
