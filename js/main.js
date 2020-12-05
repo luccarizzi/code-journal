@@ -29,7 +29,7 @@ $formProfile.addEventListener('submit', function (e) {
     var formName = formElements[i].name;
     data.profile[formName] = formElements[i].value;
   }
-  // $profileImage.setAttribute('src', 'images/placeholder-image-square.jpg');
+  $profileImage.setAttribute('src', 'images/placeholder-image-square.jpg');
   // $formProfile.reset();
   swapView('profile');
 });
@@ -49,7 +49,7 @@ $formEntry.addEventListener('submit', function (e) {
   };
   data.entries.push(entryInfo);
 
-  // e.preventDefault();
+  $entryImage.setAttribute('src', 'images/placeholder-image-square.jpg');
 });
 
 function renderProfile(object) {
