@@ -37,11 +37,17 @@ $formProfile.addEventListener('submit', function (e) {
   data.profile.location = $locationValue;
   data.profile.bio = $bioValue;
 
+  e.preventDefault();
+
+  $formProfile.reset();
+
   $profileImage.setAttribute('src', 'images/placeholder-image-square.jpg');
 
   swapView('profile');
 
-  // $formProfile.reset();
+  for (var k = 0; k < $aList.length; k++) {
+    $aList[k].setAttribute('class', 'view font-white');
+  }
 });
 
 var $formEntry = document.getElementById('entryForm');
@@ -52,18 +58,20 @@ $formEntry.addEventListener('submit', function (e) {
   var $photoUrlValue = document.getElementById('photoUrl').value;
   var $titleValue = document.getElementById('title').value;
 
-  var entryInfo = {
+  var entryValues = {
     notes: $notesValue,
     photoUrl: $photoUrlValue,
     title: $titleValue
   };
-  data.entries.push(entryInfo);
+  data.entries.unshift(entryValues);
+
+  e.preventDefault();
+
+  $formEntry.reset();
 
   $entryImage.setAttribute('src', 'images/placeholder-image-square.jpg');
 
   swapView('entries');
-
-  // $formEntry.reset();
 });
 
 function renderProfile(object) {
