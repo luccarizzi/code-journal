@@ -3,7 +3,7 @@ var $avatarUrl = document.getElementById('avatarUrl');
 var $profileImage = document.getElementById('profileImage');
 
 $avatarUrl.addEventListener('input', function (e) {
-  var imageUrl = e.target.value; // var & e changed
+  var imageUrl = e.target.value;
   $profileImage.setAttribute('src', imageUrl);
   if ($avatarUrl.value === '') {
     $profileImage.setAttribute('src', 'images/placeholder-image-square.jpg');
@@ -36,8 +36,6 @@ $formProfile.addEventListener('submit', function (e) {
 
 var $formEntry = document.getElementById('entryForm');
 
-var arr = [];
-
 $formEntry.addEventListener('submit', function (e) {
 
   var $notesValue = document.getElementById('notes').value;
@@ -49,9 +47,9 @@ $formEntry.addEventListener('submit', function (e) {
     photoUrl: $photoUrlValue,
     title: $titleValue
   };
+  data.entries.push(entryInfo);
 
-  arr.push(entryInfo);
-  e.preventDefault();
+  // e.preventDefault();
 });
 
 function renderProfile(object) {
