@@ -36,8 +36,22 @@ $formProfile.addEventListener('submit', function (e) {
 
 var $formEntry = document.getElementById('entryForm');
 
+var arr = [];
+
 $formEntry.addEventListener('submit', function (e) {
 
+  var $notesValue = document.getElementById('notes').value;
+  var $photoUrlValue = document.getElementById('photoUrl').value;
+  var $titleValue = document.getElementById('title').value;
+
+  var entryInfo = {
+    notes: $notesValue,
+    photoUrl: $photoUrlValue,
+    title: $titleValue
+  };
+
+  arr.push(entryInfo);
+  e.preventDefault();
 });
 
 function renderProfile(object) {
