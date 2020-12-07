@@ -51,6 +51,14 @@
   align-items: center;
 }
 
+.justify-between {
+  justify-content: space-between;
+}
+
+.align-baseline {
+  align-items: baseline;
+}
+
 /* extra */
 
 img {
@@ -59,13 +67,13 @@ img {
   border-radius: 5px;
 }
 
-.profile-image {
+.image {
   object-fit: cover;
   object-position: top;
   height: 100%;
 }
 
-.profile-image-container {
+.image-container {
   height: 408px;
 }
 
@@ -114,7 +122,7 @@ textarea:focus {
   margin: 1rem 0;
   border: none;
   background-color: #0e4300;
-  width: 6rem;
+  width: 8rem;
 }
 
 .edit-button {
@@ -162,8 +170,4 @@ textarea:focus {
 
 a {
   text-decoration: none;
-}
-
-nav {
-  margin-left: 3rem;
 }

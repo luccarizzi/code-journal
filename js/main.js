@@ -3,29 +3,78 @@ var $avatarUrl = document.getElementById('avatarUrl');
 var $profileImage = document.getElementById('profileImage');
 
 $avatarUrl.addEventListener('input', function (e) {
-  var imgUrl = event.target.value;
-  $profileImage.setAttribute('src', imgUrl);
+  var imageUrl = e.target.value;
+  $profileImage.setAttribute('src', imageUrl);
   if ($avatarUrl.value === '') {
     $profileImage.setAttribute('src', 'images/placeholder-image-square.jpg');
   }
 });
 
-var $form = document.getElementById('form');
+var $photoUrl = document.getElementById('photoUrl');
+var $entryImage = document.getElementById('entryImage');
 
-$form.addEventListener('submit', function (e) {
-
-  var formElements = document.forms[0].elements;
-  for (var i = 0; i < formElements.length - 1; i++) {
-    var formName = formElements[i].name;
-    data.profile[formName] = formElements[i].value;
+$photoUrl.addEventListener('input', function (e) {
+  var photoUrl = e.target.value;
+  $entryImage.setAttribute('src', photoUrl);
+  if ($photoUrl.value === '') {
+    $entryImage.setAttribute('src', 'images/placeholder-image-square.jpg');
   }
-  // $profileImage.setAttribute('src', 'images/placeholder-image-square.jpg');
-  // $form.reset();
+});
+
+var $formProfile = document.getElementById('profileForm');
+
+$formProfile.addEventListener('submit', function (e) {
+
+  var $avatarUrlValue = document.getElementById('avatarUrl').value;
+  var $usernameValue = document.getElementById('username').value;
+  var $fullNameValue = document.getElementById('fullName').value;
+  var $locationValue = document.getElementById('location').value;
+  var $bioValue = document.getElementById('bio').value;
+
+  data.profile.avatarUrl = $avatarUrlValue;
+  data.profile.username = $usernameValue;
+  data.profile.fullName = $fullNameValue;
+  data.profile.location = $locationValue;
+  data.profile.bio = $bioValue;
+
+  e.preventDefault();
+
+  $formProfile.reset();
+
+  $profileImage.setAttribute('src', 'images/placeholder-image-square.jpg');
+
   swapView('profile');
+
+  for (var k = 0; k < $aList.length; k++) {
+    $aList[k].setAttribute('class', 'view font-white');
+  }
+});
+
+var $formEntry = document.getElementById('entryForm');
+
+$formEntry.addEventListener('submit', function (e) {
+
+  var $notesValue = document.getElementById('notes').value;
+  var $photoUrlValue = document.getElementById('photoUrl').value;
+  var $titleValue = document.getElementById('title').value;
+
+  var entryValues = {
+    notes: $notesValue,
+    photoUrl: $photoUrlValue,
+    title: $titleValue
+  };
+  data.entries.unshift(entryValues);
+
+  e.preventDefault();
+
+  $formEntry.reset();
+
+  $entryImage.setAttribute('src', 'images/placeholder-image-square.jpg');
+
+  swapView('entries');
 });
 
 function renderProfile(object) {
-
   var section = document.createElement('section');
 
   var divColumnFull = document.createElement('div');
@@ -38,13 +87,13 @@ function renderProfile(object) {
   h1.textContent = object.profile.fullName;
 
   var divColumnHalf1 = document.createElement('div');
-  divColumnHalf1.setAttribute('class', 'column-half profile-image-container');
+  divColumnHalf1.setAttribute('class', 'column-half image-container');
 
   var divColumnHalf2 = document.createElement('div');
   divColumnHalf2.setAttribute('class', 'column-half font-18 paragraph');
 
   var img = document.createElement('img');
-  img.setAttribute('class', 'profile-image');
+  img.setAttribute('class', 'image');
   img.setAttribute('src', object.profile.avatarUrl);
   img.setAttribute('alt', 'Profile image.');
 
@@ -95,7 +144,7 @@ function renderProfile(object) {
 
 var $viewList = document.querySelectorAll('.view');
 var form = document.forms[0].elements;
-var $a = document.querySelector('a[data-view]');
+var $aList = document.querySelectorAll('a[data-view]');
 
 function swapView(view) {
   for (var i = 0; i < $viewList.length; i++) {
@@ -106,7 +155,9 @@ function swapView(view) {
         $viewList[i].appendChild(renderProfile(data));
       } else if (view === 'edit-profile') {
         if (data.profile.username === '') {
-          $a.setAttribute('class', 'hidden');
+          for (var k = 0; k < $aList.length; k++) {
+            $aList[k].setAttribute('class', 'hidden');
+          }
         } else if (data.profile.username !== '') {
           for (var j = 0; j < form.length - 1; j++) {
             var formName = form[j].name;
@@ -121,6 +172,9 @@ function swapView(view) {
       $viewList[i].setAttribute('class', 'view hidden');
     }
   }
+  if (view === 'entries') {
+    document.querySelector('a[data-view=create-entry]').className = 'edit-button font-lato-400 font-white view';
+  }
   data.view = view;
 }
 
@@ -128,7 +182,7 @@ document.addEventListener('DOMContentLoaded', function (e) {
   if (data.profile.username === '') {
     swapView('edit-profile');
   } else {
-    swapView('profile');
+    swapView(data.view);
   }
 });
 

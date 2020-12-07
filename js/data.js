@@ -15,10 +15,10 @@ var data = {
 var previousDataProfileJSON = localStorage.getItem('javascript-local-storage');
 
 if (previousDataProfileJSON !== null) {
-  data.profile = JSON.parse(previousDataProfileJSON);
+  data = JSON.parse(previousDataProfileJSON);
 }
 
 window.addEventListener('beforeunload', function (e) {
-  var dataProfileJSON = JSON.stringify(data.profile);
+  var dataProfileJSON = JSON.stringify(data);
   localStorage.setItem('javascript-local-storage', dataProfileJSON);
 });

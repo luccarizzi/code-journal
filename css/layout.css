@@ -2,6 +2,11 @@ body {
   margin-bottom: 5rem;
 }
 
+nav,
+nav a {
+  margin-left: 0.5rem;
+}
+
 .hidden {
   display: none !important;
 }
@@ -25,6 +30,14 @@ body {
 @media screen and (min-width: 768px) {
   body {
     margin-bottom: 0;
+  }
+
+  nav {
+    margin-left: 2rem;
+  }
+
+  nav a {
+    margin-left: 1rem;
   }
 
   .container {

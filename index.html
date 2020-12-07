@@ -17,10 +17,11 @@
 <body class="bg-light-gray">
   <header class="bg-green">
     <div class="container bg-green font-white font-lato-700">
-      <div class="column-full row">
+      <div class="column-full row align-baseline">
         <h2>Code Journal</h2>
         <nav class="row align-center">
           <a class="font-white" href="#" data-view="profile">Profile</a>
+          <a class="font-white" href="#" data-view="entries">Entries</a>
         </nav>
       </div>
     </div>
@@ -31,9 +32,13 @@
         <div class="column-full">
           <h1>Edit Profile</h1>
         </div>
-        <form id="form" class="row font-18">
-          <div class="column-half profile-image-container">
-            <img id="profileImage" class="profile-image" src="images/placeholder-image-square.jpg" alt="Profile image.">
+        <form id="profileForm" class="row font-18">
+          <div class="column-half image-container">
+            <img
+            id="profileImage"
+            class="image"
+            src="images/placeholder-image-square.jpg"
+            alt="Profile image.">
           </div>
           <div class="column-half">
             <div class="flex flex-column justify-end">
@@ -88,6 +93,64 @@
       </section>
     </div>
     <div data-view="profile" class="view"></div>
+    <div data-view="entries" class="view">
+      <div class="column-full flex justify-between align-baseline">
+        <h1>Create Entry</h1>
+        <a
+        class="edit-button font-lato-400 font-white view"
+        href="#"
+        data-view="create-entry">new</a>
+      </div>
+    </div>
+    <div data-view="create-entry" class="view">
+      <section>
+        <div class="column-full">
+          <h1>Create Entry</h1>
+        </div>
+        <form id="entryForm" class="row font-18">
+          <div class="column-half image-container">
+            <img
+            id="entryImage"
+            class="image"
+            src="images/placeholder-image-square.jpg"
+            alt="Entry image.">
+          </div>
+          <div class="column-half">
+            <div class="flex flex-column justify-end">
+              <label for="photoUrl">Photo URL</label>
+              <input
+              id="photoUrl"
+              name="photoUrl"
+              type="url"
+              required>
+            </div>
+            <div class="flex flex-column justify-end">
+              <label for="title">Title</label>
+              <input
+              id="title"
+              name="title"
+              type="text"
+              required>
+            </div>
+          </div>
+          <div class="column-full">
+            <label for="notes">Notes</label>
+            <textarea
+            id="notes"
+            name="notes"
+            rows="6"
+            required></textarea>
+          </div>
+          <div class="column-full row justify-end">
+            <input
+            class="input-submit font-lato-400 font-white"
+            name="submit"
+            value="create"
+            type="submit">
+          </div>
+        </form>
+      </section>
+    </div>
   </main>
   <script src="js/data.js"></script>
   <script src="js/main.js"></script>
