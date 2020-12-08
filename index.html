@@ -93,6 +93,7 @@
       </section>
     </div>
     <div data-view="profile" class="view"></div>
+
     <div data-view="entries" class="view">
       <div class="column-full flex justify-between align-baseline">
         <h1>Entries</h1>
@@ -101,12 +102,27 @@
         href="#"
         data-view="create-entry">new</a>
       </div>
-      <div class="column-full">
-        <ol>
-
-        </ol>
-      </div>
+      <ol>
+        <div class="row tb margin-bottom">
+          <div class="column-half image-container tb">
+            <img
+            id=""
+            class="image"
+            src="images/placeholder-image-square.jpg"
+            alt="Entry image.">
+          </div>
+          <div class="column-half tb">
+            <h2>Luke Skywalker</h2>
+            <p class="font-18 paragraph-bio">
+              Luke Skywalker was a Tatooine farmboy who rose from humble beginnings to become one of the greatest Jedi the galaxy has
+              ever known. Along with his friends Princess Leia and Han Solo, Luke battled the evil Empire, discovered the truth of his
+              parentage, and ended the tyranny of the Sith.
+            </p>
+          </div>
+        </div>
+      </ol>
     </div>
+
     <div data-view="create-entry" class="view">
       <section>
         <div class="column-full">

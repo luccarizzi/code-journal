@@ -21,6 +21,7 @@
 
 h1 {
   font-size: 32px;
+  margin: 26.56px 0;
 }
 
 .font-18 {
@@ -174,4 +175,16 @@ textarea:focus {
 
 a {
   text-decoration: none;
+}
+
+. {
+  border: 1px solid red;
+}
+
+ol {
+  display: contents;
+}
+
+.margin-bottom {
+  margin-bottom: 2rem;
 }
