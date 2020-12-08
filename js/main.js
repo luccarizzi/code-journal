@@ -138,27 +138,27 @@ function renderProfile(object) {
   return section;
 }
 
-function renderEntry () {
-  var divRow = document.createElement("div");
-  divRow.setAttribute("class", "row margin-bottom");
+function renderEntry(object) {
+  var divRow = document.createElement('div');
+  divRow.setAttribute('class', 'row margin-bottom');
 
-  var divImage = document.createElement("div");
-  divImage.setAttribute("class", "column-half image-container");
+  var divImage = document.createElement('div');
+  divImage.setAttribute('class', 'column-half image-container');
 
-  var divText = document.createElement("div");
-  divText.setAttribute("class", "column-half");
+  var divText = document.createElement('div');
+  divText.setAttribute('class', 'column-half');
 
-  var img = document.createElement("img");
-  img.setAttribute("class", "image");
-  img.setAttribute("src", object.entries[0].photoUrl);
-  img.setAttribute("alt", "Entry image.");
+  var img = document.createElement('img');
+  img.setAttribute('class', 'image');
+  img.setAttribute('src', object.photoUrl);
+  img.setAttribute('alt', 'Entry image.');
 
-  var h2 = document.createElement("h2");
-  h2.textContent = object.entries[0].title;
+  var h2 = document.createElement('h2');
+  h2.textContent = object.title;
 
-  var p = document.createElement("p");
-  p.setAttribute("class", "font-18 paragraph-bio");
-  p.textContent = object.entries[0].notes;
+  var p = document.createElement('p');
+  p.setAttribute('class', 'font-18 paragraph-bio');
+  p.textContent = object.notes;
 
   divRow.append(divImage, divText);
   divImage.append(img);
@@ -166,8 +166,6 @@ function renderEntry () {
 
   return divRow;
 }
-
-
 
 var $viewList = document.querySelectorAll('.view');
 var form = document.forms[0].elements;
@@ -205,11 +203,17 @@ function swapView(view) {
   data.view = view;
 }
 
+var $ol = document.querySelector('ol');
+
 document.addEventListener('DOMContentLoaded', function (e) {
   if (data.profile.username === '') {
     swapView('edit-profile');
   } else {
     swapView(data.view);
+  }
+
+  for (var i = 0; i < data.entries.length; i++) {
+    $ol.append(renderEntry(data.entries[i]));
   }
 });
 
