@@ -64,13 +64,9 @@ $formEntry.addEventListener('submit', function (e) {
     title: $titleValue
   };
   data.entries.unshift(entryValues);
-
   e.preventDefault();
-
   $formEntry.reset();
-
   $entryImage.setAttribute('src', 'images/placeholder-image-square.jpg');
-
   swapView('entries');
 });
 
@@ -141,6 +137,37 @@ function renderProfile(object) {
 
   return section;
 }
+
+function renderEntry () {
+  var divRow = document.createElement("div");
+  divRow.setAttribute("class", "row margin-bottom");
+
+  var divImage = document.createElement("div");
+  divImage.setAttribute("class", "column-half image-container");
+
+  var divText = document.createElement("div");
+  divText.setAttribute("class", "column-half");
+
+  var img = document.createElement("img");
+  img.setAttribute("class", "image");
+  img.setAttribute("src", object.entries[0].photoUrl);
+  img.setAttribute("alt", "Entry image.");
+
+  var h2 = document.createElement("h2");
+  h2.textContent = object.entries[0].title;
+
+  var p = document.createElement("p");
+  p.setAttribute("class", "font-18 paragraph-bio");
+  p.textContent = object.entries[0].notes;
+
+  divRow.append(divImage, divText);
+  divImage.append(img);
+  divText.append(h2, p);
+
+  return divRow;
+}
+
+
 
 var $viewList = document.querySelectorAll('.view');
 var form = document.forms[0].elements;
