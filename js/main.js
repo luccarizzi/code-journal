@@ -64,6 +64,7 @@ $formEntry.addEventListener('submit', function (e) {
     title: $titleValue
   };
   data.entries.unshift(entryValues);
+
   e.preventDefault();
   $formEntry.reset();
   $entryImage.setAttribute('src', 'images/placeholder-image-square.jpg');
@@ -214,6 +215,7 @@ document.addEventListener('DOMContentLoaded', function (e) {
 
   for (var i = 0; i < data.entries.length; i++) {
     $ol.append(renderEntry(data.entries[i]));
+    data.view = 'entries';
   }
 });
 
