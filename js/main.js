@@ -65,6 +65,8 @@ $formEntry.addEventListener('submit', function (e) {
   };
   data.entries.unshift(entryValues);
 
+  $ol.prepend(renderEntry(entryValues));
+
   e.preventDefault();
   $formEntry.reset();
   $entryImage.setAttribute('src', 'images/placeholder-image-square.jpg');
