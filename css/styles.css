@@ -19,6 +19,11 @@
   color: #fff;
 }
 
+h1 {
+  font-size: 32px;
+  margin: 26.56px 0;
+}
+
 .font-18 {
   font-size: 18px;
 }
@@ -170,4 +175,12 @@ textarea:focus {
 
 a {
   text-decoration: none;
+}
+
+ol {
+  display: contents;
+}
+
+.margin-bottom {
+  margin-bottom: 2rem;
 }
