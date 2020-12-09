@@ -38,11 +38,8 @@ $formProfile.addEventListener('submit', function (e) {
   data.profile.bio = $bioValue;
 
   e.preventDefault();
-
   $formProfile.reset();
-
   $profileImage.setAttribute('src', 'images/placeholder-image-square.jpg');
-
   swapView('profile');
 
   for (var k = 0; k < $aList.length; k++) {
@@ -64,7 +61,6 @@ $formEntry.addEventListener('submit', function (e) {
     title: $titleValue
   };
   data.entries.unshift(entryValues);
-
   $ol.prepend(renderEntry(entryValues));
 
   e.preventDefault();
@@ -214,7 +210,6 @@ document.addEventListener('DOMContentLoaded', function (e) {
   } else {
     swapView(data.view);
   }
-
   for (var i = 0; i < data.entries.length; i++) {
     $ol.append(renderEntry(data.entries[i]));
     data.view = 'entries';
