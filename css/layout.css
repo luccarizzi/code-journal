@@ -52,4 +52,8 @@ nav a {
   .column-half {
     width: 50%;
   }
+
+  .paragraph-bio {
+    height: 15rem;
+  }
 }

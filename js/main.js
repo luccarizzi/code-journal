@@ -159,15 +159,19 @@ function renderEntry(object) {
   p.setAttribute('class', 'font-18 paragraph-bio');
   p.textContent = object.notes;
 
+  var divDel = document.createElement('div');
+  divDel.setAttribute('class', 'column-full no-padding flex justify-end');
+
   var aDel = document.createElement('a');
-  aDel.setAttribute('class', 'edit-button font-lato-400 font-white');
+  aDel.setAttribute('class', 'edit-button font-lato-400 font-white delete-button');
   aDel.setAttribute('href', '#');
   aDel.setAttribute('data-view', 'entries');
   aDel.textContent = 'delete';
 
   divRow.append(divImage, divText);
   divImage.append(img);
-  divText.append(h2, p, aDel);
+  divText.append(h2, p, divDel);
+  divDel.append(aDel);
 
   return divRow;
 }
