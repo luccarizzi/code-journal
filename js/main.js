@@ -137,6 +137,8 @@ function renderProfile(object) {
   return section;
 }
 
+var delId = 0;
+
 function renderEntry(object) {
   var divRow = document.createElement('div');
   divRow.setAttribute('class', 'row margin-bottom');
@@ -166,7 +168,10 @@ function renderEntry(object) {
   aDel.setAttribute('class', 'edit-button font-lato-400 font-white delete-button');
   aDel.setAttribute('href', '#');
   aDel.setAttribute('data-view', 'entries');
+  aDel.setAttribute('id', 'del' + delId);
   aDel.textContent = 'delete';
+
+  delId++;
 
   divRow.append(divImage, divText);
   divImage.append(img);
