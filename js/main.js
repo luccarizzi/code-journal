@@ -162,7 +162,7 @@ function renderEntry(object) {
   var aDel = document.createElement('a');
   aDel.setAttribute('class', 'edit-button font-lato-400 font-white');
   aDel.setAttribute('href', '#');
-  // aDel.setAttribute('data-view', 'edit-profile');
+  aDel.setAttribute('data-view', 'entries');
   aDel.textContent = 'delete';
 
   divRow.append(divImage, divText);
