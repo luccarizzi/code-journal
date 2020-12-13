@@ -159,9 +159,15 @@ function renderEntry(object) {
   p.setAttribute('class', 'font-18 paragraph-bio');
   p.textContent = object.notes;
 
+  var aDel = document.createElement('a');
+  aDel.setAttribute('class', 'edit-button font-lato-400 font-white');
+  aDel.setAttribute('href', '#');
+  // aDel.setAttribute('data-view', 'edit-profile');
+  aDel.textContent = 'delete';
+
   divRow.append(divImage, divText);
   divImage.append(img);
-  divText.append(h2, p);
+  divText.append(h2, p, aDel);
 
   return divRow;
 }
