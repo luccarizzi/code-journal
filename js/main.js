@@ -159,9 +159,19 @@ function renderEntry(object) {
   p.setAttribute('class', 'font-18 paragraph-bio');
   p.textContent = object.notes;
 
+  var divDel = document.createElement('div');
+  divDel.setAttribute('class', 'column-full no-padding flex justify-end');
+
+  var aDel = document.createElement('a');
+  aDel.setAttribute('class', 'edit-button font-lato-400 font-white');
+  aDel.setAttribute('href', '#');
+  aDel.setAttribute('data-view', 'entries');
+  aDel.textContent = 'delete';
+
   divRow.append(divImage, divText);
   divImage.append(img);
-  divText.append(h2, p);
+  divText.append(h2, p, divDel);
+  divDel.append(aDel);
 
   return divRow;
 }
@@ -221,3 +231,23 @@ document.addEventListener('click', function (e) {
     swapView(e.target.getAttribute('data-view'));
   }
 });
+
+document.addEventListener('click', function (e) {
+  if (e.target.className === 'edit-button font-lato-400 font-white') {
+    var nodeToBeDeleted = e.target.parentNode.parentNode.parentNode;
+    $ol.removeChild(nodeToBeDeleted);
+    find(e.target.parentNode.parentNode.firstChild.textContent);
+    swapView('entries');
+  }
+});
+
+function find(title) {
+  var entries = data.entries;
+  for (var i = 0; i < entries.length; i++) {
+    for (var key in entries[i]) {
+      if (entries[i][key] === title) {
+        entries.splice(entries.indexOf(entries[i]), 1);
+      }
+    }
+  }
+}

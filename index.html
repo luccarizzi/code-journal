@@ -93,7 +93,6 @@
       </section>
     </div>
     <div data-view="profile" class="view"></div>
-
     <div data-view="entries" class="view">
       <div class="column-full flex justify-between align-baseline">
         <h1>Entries</h1>
@@ -104,7 +103,6 @@
       </div>
       <ol></ol>
     </div>
-
     <div data-view="create-entry" class="view">
       <section>
         <div class="column-full">
@@ -133,6 +131,7 @@
               id="title"
               name="title"
               type="text"
+              maxlength="29"
               required>
             </div>
           </div>
@@ -142,6 +141,7 @@
             id="notes"
             name="notes"
             rows="6"
+            maxlength="384"
             required></textarea>
           </div>
           <div class="column-full row justify-end">

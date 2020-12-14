@@ -137,6 +137,10 @@ textarea:focus {
   padding-top: 0.6rem;
 }
 
+.no-padding {
+  padding: 0;
+}
+
 .edit-button:focus,
 .input-submit:focus {
   outline: none;
