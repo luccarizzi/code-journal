@@ -137,8 +137,6 @@ function renderProfile(object) {
   return section;
 }
 
-var delId = 0;
-
 function renderEntry(object) {
   var divRow = document.createElement('div');
   divRow.setAttribute('class', 'row margin-bottom');
@@ -165,13 +163,10 @@ function renderEntry(object) {
   divDel.setAttribute('class', 'column-full no-padding flex justify-end');
 
   var aDel = document.createElement('a');
-  aDel.setAttribute('class', 'edit-button font-lato-400 font-white delete-button');
+  aDel.setAttribute('class', 'edit-button font-lato-400 font-white');
   aDel.setAttribute('href', '#');
   aDel.setAttribute('data-view', 'entries');
-  aDel.setAttribute('id', 'del' + delId);
   aDel.textContent = 'delete';
-
-  delId++;
 
   divRow.append(divImage, divText);
   divImage.append(img);
@@ -236,3 +231,23 @@ document.addEventListener('click', function (e) {
     swapView(e.target.getAttribute('data-view'));
   }
 });
+
+document.addEventListener('click', function (e) {
+  if (e.target.className === 'edit-button font-lato-400 font-white') {
+    var nodeToBeDeleted = e.target.parentNode.parentNode.parentNode;
+    $ol.removeChild(nodeToBeDeleted);
+    find(e.target.parentNode.parentNode.firstChild.textContent);
+    swapView('entries');
+  }
+});
+
+function find(title) {
+  var entries = data.entries;
+  for (var i = 0; i < entries.length; i++) {
+    for (var key in entries[i]) {
+      if (entries[i][key] === title) {
+        entries.splice(entries.indexOf(entries[i]), 1);
+      }
+    }
+  }
+}
