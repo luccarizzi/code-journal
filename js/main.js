@@ -102,6 +102,7 @@ function renderProfile(object) {
   div3.setAttribute('class', 'paragraph-bio');
 
   var div4 = document.createElement('div');
+  div4.setAttribute('class', 'column-full no-padding flex justify-end');
 
   var p1 = document.createElement('p');
   p1.textContent = object.profile.username;
@@ -156,7 +157,7 @@ function renderEntry(object) {
   h2.textContent = object.title;
 
   var p = document.createElement('p');
-  p.setAttribute('class', 'font-18 paragraph-bio');
+  p.setAttribute('class', 'font-18 paragraph-notes');
   p.textContent = object.notes;
 
   var divDel = document.createElement('div');
