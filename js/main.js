@@ -233,14 +233,14 @@ document.addEventListener('click', function (e) {
   }
 });
 
-document.addEventListener('click', function (e) {
-  if (e.target.className === 'edit-button font-lato-400 font-white') {
-    var nodeToBeDeleted = e.target.parentNode.parentNode.parentNode;
-    $ol.removeChild(nodeToBeDeleted);
-    find(e.target.parentNode.parentNode.firstChild.textContent);
-    swapView('entries');
-  }
-});
+// document.addEventListener('click', function (e) {
+//   if (e.target.className === 'edit-button font-lato-400 font-white') {
+//     var nodeToBeDeleted = e.target.parentNode.parentNode.parentNode;
+//     $ol.removeChild(nodeToBeDeleted);
+//     find(e.target.parentNode.parentNode.firstChild.textContent);
+//     swapView('entries');
+//   }
+// });
 
 function find(title) {
   var entries = data.entries;
